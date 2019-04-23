@@ -1,3 +1,10 @@
+-- zsumowanie maili z kampanii
+select mk.id as ID_kampanii, mk.typ_kampanii as typ_kampanii, sum(me.id) as suma_emailów
+from m_kampanie mk
+    right join m_email me on mk.id = me.id_kampanii
+group by mk.id
+order by suma_emailów desc
+
 -- przydzielnie maili do kampanii
 select mk.id as ID_kampanii, mk.typ_kampanii as typ_kampanii, me.id as ID_emaila, me.ile_otwarto as otwarto, me.ile_kliknieto
 from m_kampanie mk
